@@ -23,7 +23,7 @@ Below you'll find the info you need to build the front-end, including the baseUR
 #### DATA SCHEMAS 
 (***Back-end: Create Seeds & Migration tables using Knex***)
  **Please remember it is critical that you create your state exactly as you see the JSON output above, otherwise, you will not be able to access the db.**
-##### LOGIN
+##### LOGIN (_user_)
 
 | field       | data type           |
 | ----------- | --------------------|
@@ -35,7 +35,7 @@ Below you'll find the info you need to build the front-end, including the baseUR
         "username": "Wrenley",
         "password": "Willow1357"
     }
-##### REGISTER
+##### REGISTER (_user_)
 
 | field       | data type             |
 | ----------- | ----------------------|
@@ -43,14 +43,14 @@ Below you'll find the info you need to build the front-end, including the baseUR
 | password    | string, required      |
 | email       | string, required      |
 
-- returned JSON example:
+- returned JSON example: 
     {
         "username": "Wrenley",
         "password": "Willow1357",
         "email": "AliceinWonderland@gmail.com"
     }
 
-#### RECIPES SCHEMA 
+#### RECIPES SCHEMA (_recipe_)
 
 | field       | data type        | metadata                                            |
 | ----------- | ---------------- | --------------------------------------------------- |
@@ -63,7 +63,7 @@ Below you'll find the info you need to build the front-end, including the baseUR
 
 - returned JSON example:
 
-recipe
+_recipes_
 
   [
     {
