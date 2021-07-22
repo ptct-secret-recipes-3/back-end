@@ -4,9 +4,11 @@
 *Notes for Front-End*
 
 Below you'll find the info you need to build the front-end, including the baseURL, API endpoints, and the data schemas.
-#### Base URL: 
+#### Base URL: (localhost vs. heroku - incomplete)
 
-- (Need to deploy to Heroku)
+- https:// .herokuapp.com
+- https://localhost:5000
+- (Deployed to Heroku: Completed - need to find url)
 
 #### API Endpoints: 
 
@@ -31,10 +33,13 @@ Below you'll find the info you need to build the front-end, including the baseUR
 | password    | string, required    |
 
  - returned JSON example:
+
     {
         "username": "Wrenley",
+
         "password": "Willow1357"
     }
+
 ##### REGISTER (_user_)
 
 | field       | data type             |
@@ -44,11 +49,15 @@ Below you'll find the info you need to build the front-end, including the baseUR
 | email       | string, required      |
 
 - returned JSON example: 
+
     {
         "username": "Wrenley",
+
         "password": "Willow1357",
-        "email": "AliceinWonderland@gmail.com"
+
+        "email": "AliceInWonderland@gmail.com"
     }
+
 
 #### RECIPES SCHEMA (_recipe_)
 
@@ -65,6 +74,7 @@ Below you'll find the info you need to build the front-end, including the baseUR
 
 _recipes_
 
+
   [
     {
         "id": 1,
@@ -74,7 +84,7 @@ _recipes_
         "instructions": ["directly infuse compassion and perspective", "Add 2 cups of water"],
         "category": "soups & stews"
 
-    }
+    },
     {
         "id": 2,
         "title": "Lasagna",
