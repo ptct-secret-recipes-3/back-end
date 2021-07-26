@@ -27,6 +27,7 @@ AFTER DEPLOY
 #### DATA SCHEMAS 
 (***Back-end: Create Seeds & Migration tables using Knex***)
  **Please remember it is critical that you create your state exactly as you see the JSON output above, otherwise, you will not be able to access the db.**
+ 
 ##### LOGIN (_user_)
 
 | field       | data type           |
@@ -37,10 +38,12 @@ AFTER DEPLOY
  - returned JSON example:
 
     {
-        "username": "Wrenley",
+       
+       "username": "Wrenley",
 
-        "password": "Willow1357"
+       "password": "Willow1357"
     }
+    
 
 ##### REGISTER (_user_)
 
@@ -52,7 +55,9 @@ AFTER DEPLOY
 
 - returned JSON example: 
 
+    
     {
+    
         "username": "Wrenley",
 
         "password": "Willow1357",
@@ -78,6 +83,7 @@ _recipes_
 
 
   [
+  
     {
         "id": 1,
         "title": "Kumandra Stew",
