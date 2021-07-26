@@ -10,7 +10,6 @@ TESTING
 
 AFTER DEPLOY
 - https://ptct-secret-recipes-3.herokuapp.com/
-- 
 
 #### API Endpoints: 
 
