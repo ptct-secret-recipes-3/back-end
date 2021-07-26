@@ -5,10 +5,12 @@
 
 Below you'll find the info you need to build the front-end, including the baseURL, API endpoints, and the data schemas.
 #### Base URL: (localhost vs. heroku - incomplete)
+TESTING
+- http://locahost:5000/api
 
-- https:// .herokuapp.com
-- https://localhost:5000
-- (Deployed to Heroku: Completed - need to find url)
+AFTER DEPLOY
+- https://ptct-secret-recipes-3.herokuapp.com/
+- 
 
 #### API Endpoints: 
 
