@@ -5,22 +5,24 @@ const jwt = require('jsonwebtoken');
 //const { default: jwtDecode } = require("jwt-decode"); //find where I'm creating this?
 const { checkForDuplicates,
   checkPayload,
-  checkUsernameExists, } = require('../middleware/middleware.js'); //importing our middleware restricted
+  checkUsernameExists
+} = require('../middleware/middleware.js'); //importing our middleware restricted
 
 const user = require("./auth-model.js"); //Importing our users data from our model folder, where it's importing it from our dbconfig
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-//REGISTER ENDPOINT
+//REGISTER ENDPOINT  -- FAIL
 router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
+  console.log("in the router.post/register");
   let users = req.body;
 
   // bcrypting the password before saving
-  const rounds = process.env.BCRYPT_ROUNDS || 8; // 2 ^ 8
+  const rounds = process.env.BCRYPT_ROUNDS || 8; 
   const hash = bcrypt.hashSync(users.password, rounds);
 
   // never save the plain text password in the db
   users.password = hash
 
-  user.add(user)
+  user.add(users)
     .then(saved => {
       console.log("saved: ", saved)
       res.status(201).json(saved);

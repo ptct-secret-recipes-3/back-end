@@ -6,7 +6,7 @@ const { checkRecipeId, checkRecipePayload } = require('../middleware/middleware.
 
 
 // - [x] `[GET] /api/recipes` X
-router.get('/api/recipes', (req, res) => {
+router.get('/', (req, res) => {
     recipe.getAll(req.query)
         .then(recipeArray => {
             res.status(200).json(recipeArray)
@@ -18,7 +18,7 @@ router.get('/api/recipes', (req, res) => {
 })
 
 // - [x] `[GET] /api/recipes/:id` - X
-router.get('/api/recipes/:id', checkRecipeId, (req, res) => {
+router.get('/:id', checkRecipeId, (req, res) => {
     recipe.getById(id)
         .then(recipeId => {
             res.status(200).json(recipeId)
@@ -30,7 +30,7 @@ router.get('/api/recipes/:id', checkRecipeId, (req, res) => {
 });
 
 // - [x] `[POST] /api/recipes` -X
-router.post('/api/recipes', checkRecipePayload, (req, res) => {
+router.post('/', checkRecipePayload, (req, res) => {
     recipe.create(aRecipe)
         .then(aRecipe => {
             res.status(200).json(aRecipe);
@@ -42,7 +42,7 @@ router.post('/api/recipes', checkRecipePayload, (req, res) => {
 });
 
 // - [x] `[PUT] /api/recipes/:id` - X
-router.put('/api/recipes/:id', checkRecipeId, checkRecipePayload, (req, res) => {
+router.put('/:id', checkRecipeId, checkRecipePayload, (req, res) => {
     recipe.updateById(id, changes)
         .then(aRecipe => {
             res.status(200).json(aRecipe);
@@ -54,7 +54,7 @@ router.put('/api/recipes/:id', checkRecipeId, checkRecipePayload, (req, res) => 
 });
 
 // - [x] `[DELETE] /api/recipes/:id`-X
-router.delete('/api/recipes/:id', checkRecipeId, (req, res) => {
+router.delete('/:id', checkRecipeId, (req, res) => {
     recipe.removeById(id)
         .then(() => {
             res.status(200).json(recipe)

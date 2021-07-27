@@ -30,9 +30,9 @@ server.use(express.json());
 //server.use(bcrypt());
 
 server.use('/api/auth', authRouter);
-server.use('api/recipes', restrict, recipesRouter)
+server.use('/api/recipes', recipesRouter)
 
-server.get("/", (req, res) => {
+server.get("/", (req, res) => {  //TESTED - SUCCESS
     console.log("I'm in the server get request")
     res.json({ api: "up" });
   });
