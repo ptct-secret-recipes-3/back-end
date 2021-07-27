@@ -132,8 +132,9 @@ _recipes_
   - 
 #### *Write Middleware*
 
-- Inside `api/middleware/recipes-middleware.js`:
-
+- Inside `api/middleware/middleware.js`:
+- *Login & Register Functions*
+- 
   - `checkRecipePayload` returns a status 400 with if `req.body` is invalid:
 
     - If either _title_  _source_ _ingredients_ or _instructions_ are undefined, return `{ message: "All fields are required" }`
@@ -143,6 +144,10 @@ _recipes_
   - `checkRecipeId` returns a status 404 with a `{ message: "recipe not found" }` if `req.params.id` does not exist in the database
 
   - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.name` already exists in the database
+ 
+ - *Recipes Validation Functions*
+
+    -
 
 - Inside `api/middleware/restricted.js`: (For the login endpoint)
 
