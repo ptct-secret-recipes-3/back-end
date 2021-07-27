@@ -134,7 +134,7 @@ _recipes_
 
 #### Inside `api/middleware/middleware.js
  
- *Login & Register Functions*
+ *Recipes Validation Functions*
  
       - `checkRecipePayload` returns a status 400 with if `req.body` is invalid:
 
@@ -144,11 +144,14 @@ _recipes_
 
       - `checkRecipeId` returns a status 404 with a `{ message: "recipe not found" }` if `req.params.id` does not exist in the database
 
-      - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.name` already exists in the database
+      - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.title` already exists in the database
  
-  *Recipes Validation Functions*
+ 
+  *Login & Register Functions*
 
-      -
+      - `checkForDuplicates` returns `{ message: "Username is already taken." } ` if username is found
+      - `checkPayload` checks if the req.body has a username and password
+      - `checkUserNameExists` checks if username exists in the DB
 
 #### Inside `api/middleware/restricted.js` (For the login endpoint)
 
