@@ -1,61 +1,40 @@
 const db = require("../../data/dbConfig.js");
-const mappers = require('../../data/helpers/mappers');
+
 
 module.exports = {
-  get,
-  insert,
-  update,
-  remove,
-  getProjectActions,
+  getAll,
+  getById,
+  create,
+  updateById,
+  removeById
 };
 
-function get(id) {
-  let query = db("projects as p");
-
-  if (id) {
-    query.where("p.id", id).first();
-
-    const promises = [query, getProjectActions(id)]; // [ projects, actions ]
-
-    return Promise.all(promises).then(function(results) {
-      let [project, actions] = results;
-
-      if (project) {
-        project.actions = actions;
-
-        return mappers.projectToBody(project);
-      } else {
-        return null;
-      }
-    });
-  } else {
-    return query.then(projects => {
-      return projects.map(project => mappers.projectToBody(project));
-    });
-  }
+function getAll () {
+    return db("recipe")
 }
 
-function insert(project) {
-  return db("projects")
-    .insert(project)
+function getById(id) {
+    return db("recipe")
+        .where("id", id)
+}
+
+
+function create (recipe) {
+  return db("recipe")
+    .insert(recipe)
     .then(([id]) => get(id));
 }
 
-function update(id, changes) {
-  return db("projects")
+function updateById (id, changes) {
+  return db("recipe")
     .where("id", id)
     .update(changes)
     .then(count => (count > 0 ? get(id) : null));
 }
 
-function remove(id) {
-  return db("projects")
+function removeById(id) {
+  return db("recipe")
     .where("id", id)
     .del();
 }
 
-function getProjectActions(projectId) {
-  return db("actions")
-    .where("project_id", projectId)
-    .then(actions => actions.map(action => mappers.actionToBody(action)));
-}

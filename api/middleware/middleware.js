@@ -122,12 +122,13 @@ const checkRecipePayload = (req, res, next) => {
 
 
 
+
 module.exports = {
     checkForDuplicates,
     checkPayload,
     checkUsernameExists,
     checkRecipePayload,
-    checkRecipeId,
-    checkTitleNameUnique
+    checkRecipeId
+    //checkTitleNameUnique
 
 };

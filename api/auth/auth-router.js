@@ -7,20 +7,20 @@ const { checkForDuplicates,
   checkPayload,
   checkUsernameExists, } = require('../middleware/middleware.js'); //importing our middleware restricted
 
-const users = require("./auth-model.js"); //Importing our users data from our model folder, where it's importing it from our dbconfig
+const user = require("./auth-model.js"); //Importing our users data from our model folder, where it's importing it from our dbconfig
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //REGISTER ENDPOINT
 router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
-  let user = req.body;
+  let users = req.body;
 
   // bcrypting the password before saving
   const rounds = process.env.BCRYPT_ROUNDS || 8; // 2 ^ 8
-  const hash = bcrypt.hashSync(user.password, rounds);
+  const hash = bcrypt.hashSync(users.password, rounds);
 
   // never save the plain text password in the db
-  user.password = hash
+  users.password = hash
 
-  users.add(user)
+  user.add(user)
     .then(saved => {
       console.log("saved: ", saved)
       res.status(201).json(saved);
@@ -42,13 +42,13 @@ router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
     let { username, password } = req.body;
         //console.log("username: ", username)
         //console.log("password ", password)
-    users.findByUserName(username) 
-      .then((user) => {
+    user.findByUserName(username) 
+      .then((users) => {
           // console.log("user.username", user.username);
           // console.log("user.password", user.password);
-        if (user && bcrypt.compareSync(password, user.password)) {
+        if (users && bcrypt.compareSync(password, users.password)) {
           console.log("credentials are correct")
-          const token = makeToken(user) //see below for the makeToken function we create
+          const token = makeToken(users) //see below for the makeToken function we create
             res.status(200).json({
                 message: "welcome, Bill Bryson",
                 token: token
@@ -64,10 +64,10 @@ router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //TOKEN FUNCTION FOR THE POST REQUEST
-      function makeToken(user){
+      function makeToken(users){
         const payload = {
-          subject:user.id,
-          username:user.username
+          subject:users.id,
+          username:users.username
         }
         const options = {
           expiresIn: "500s"
