@@ -1,6 +1,8 @@
 const users = require("../auth/auth-model.js");
 const bcrypt = require("bcryptjs");
 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOGIN/REGISTER MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Checks to see if the username is already in the DB
 const checkForDuplicates = async (req, res, next) => {
     console.log("in the checkForDuplicates")
@@ -63,10 +65,47 @@ const checkUsernameExists = async (req, res, next) => {
     } catch (err) {
         next(err)
     }
+
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~RECIPES MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+const checkRecipePayload = (req, res, next) => {
+    console.log("in the checkPayload")
+      const username = req.body.username;
+      const password = req.body.password;
+      if (!username || !password) {
+          return res.status(400).json(
+              "username and password required"
+          )
+      } else {
+          next()
+      }
+  }
+
+
+const checkRecipeId = (req, res, next) => {
+    console.log("in the checkRecipeId");
+
+  }
+
+
+const checkTitleNameUnique = (req, res, next) => {
+    console.log("in the checkTitleNameUnique")
+}
+
+
+
+
+
+
 
 module.exports = {
     checkForDuplicates,
     checkPayload,
     checkUsernameExists,
-}
+    checkRecipePayload,
+    checkRecipeId,
+    checkTitleNameUnique
+
+};

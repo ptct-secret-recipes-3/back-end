@@ -38,7 +38,7 @@ router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
 //LOGIN ENDPOINT
   router.post('/login', checkPayload, checkUsernameExists, (req, res) => {
     
-        //console.log("starting /login");
+        console.log("starting /login");
     let { username, password } = req.body;
         //console.log("username: ", username)
         //console.log("password ", password)
@@ -50,7 +50,7 @@ router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
           console.log("credentials are correct")
           const token = makeToken(user) //see below for the makeToken function we create
             res.status(200).json({
-                message: "welcome, Captain Marvel",
+                message: "welcome, Bill Bryson",
                 token: token
             });
         } else {

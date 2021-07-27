@@ -71,7 +71,7 @@ describe("user tests", () => {
 
     const res4 = await supertest(server).post("/api/auth/login").send({ username: 'testUser', password: 'testPassword' })
     expect(res4.statusCode).toBe(200)
-    expect(res4.body.message).toBe("welcome, Captain Marvel")
+    expect(res4.body.message).toBe("welcome, Bill Bryson")
 
   })
 })

@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const restrict = require('./middleware/restricted.js');
 
 const authRouter = require('./auth/auth-router.js');
-
+const recipesRouter = require('./recipes/recipes-router');
 
 const server = express();
 
@@ -30,7 +30,7 @@ server.use(express.json());
 //server.use(bcrypt());
 
 server.use('/api/auth', authRouter);
-
+server.use('api/recipes', restrict, recipesRouter)
 
 server.get("/", (req, res) => {
     console.log("I'm in the server get request")
