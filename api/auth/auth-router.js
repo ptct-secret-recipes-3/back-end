@@ -10,7 +10,7 @@ const { checkForDuplicates,
 
 const user = require("./auth-model.js"); //Importing our users data from our model folder, where it's importing it from our dbconfig
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-//REGISTER ENDPOINT  -- FAIL
+//REGISTER ENDPOINT  ---- SUCCESS
 router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
   console.log("in the router.post/register");
   let users = req.body;
@@ -37,7 +37,7 @@ router.post('/register', checkPayload, checkForDuplicates, (req, res) => {
    
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-//LOGIN ENDPOINT
+//LOGIN ENDPOINT --- SUCCESS
   router.post('/login', checkPayload, checkUsernameExists, (req, res) => {
     
         console.log("starting /login");

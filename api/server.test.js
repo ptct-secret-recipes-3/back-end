@@ -15,7 +15,7 @@ afterAll(async () => {
 })
 
 test('sanity', () => {
-  expect(true).toBe(true)
+  expect(0).toBe(0)
 })
 
 

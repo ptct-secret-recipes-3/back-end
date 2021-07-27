@@ -101,7 +101,7 @@ const checkRecipePayload = (req, res, next) => {
            }
     
          }catch(error){
-           res.status(500).json({message: 'Error'})
+           res.status(500).json({message: 'Error in checkRecipeId middleware'})
          }
       
     }

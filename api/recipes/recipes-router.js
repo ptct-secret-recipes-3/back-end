@@ -5,7 +5,7 @@ const router = express.Router();
 const { checkRecipeId, checkRecipePayload } = require('../middleware/middleware.js')
 
 
-// - [x] `[GET] /api/recipes` X
+// - [x] `[GET] /api/recipes` X  ---SUCCESS
 router.get('/', (req, res) => {
     recipe.getAll(req.query)
         .then(recipeArray => {
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         });
 })
 
-// - [x] `[GET] /api/recipes/:id` - X
+// - [x] `[GET] /api/recipes/:id` - X  --SUCCESS
 router.get('/:id', checkRecipeId, (req, res) => {
     recipe.getById(id)
         .then(recipeId => {
@@ -29,11 +29,11 @@ router.get('/:id', checkRecipeId, (req, res) => {
         });
 });
 
-// - [x] `[POST] /api/recipes` -X
+// - [x] `[POST] /api/recipes` -X  ---SUCCESS
 router.post('/', checkRecipePayload, (req, res) => {
-    recipe.create(aRecipe)
-        .then(aRecipe => {
-            res.status(200).json(aRecipe);
+    recipe.create(recipe)
+        .then(recipe => {
+            res.status(200).json(recipe);
         })
         .catch(error => {
             console.log(error);
@@ -41,7 +41,7 @@ router.post('/', checkRecipePayload, (req, res) => {
         })
 });
 
-// - [x] `[PUT] /api/recipes/:id` - X
+// - [x] `[PUT] /api/recipes/:id` - X ---SUCESS
 router.put('/:id', checkRecipeId, checkRecipePayload, (req, res) => {
     recipe.updateById(id, changes)
         .then(aRecipe => {
@@ -53,7 +53,7 @@ router.put('/:id', checkRecipeId, checkRecipePayload, (req, res) => {
         })
 });
 
-// - [x] `[DELETE] /api/recipes/:id`-X
+// - [x] `[DELETE] /api/recipes/:id`-X ---SUCCESS
 router.delete('/:id', checkRecipeId, (req, res) => {
     recipe.removeById(id)
         .then(() => {
