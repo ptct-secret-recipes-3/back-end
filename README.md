@@ -132,22 +132,23 @@ _recipes_
   - 
 #### *Write Middleware*
 
-- Inside `api/middleware/middleware.js`:
+- Inside `api/middleware/middleware.js`
+ 
  *Login & Register Functions*
-- 
-  - `checkRecipePayload` returns a status 400 with if `req.body` is invalid:
+ 
+      - `checkRecipePayload` returns a status 400 with if `req.body` is invalid:
 
-    - If either _title_  _source_ _ingredients_ or _instructions_ are undefined, return `{ message: "All fields are required" }`
-    - If _title_ is not a string, return `{ message: "title of recipe must be a string" }`
-    - If the _title_ is shorter than 3 or longer than 100, return `{ message: "title of recipe must be between 3 and 100" }`
+        - If either _title_  _source_ _ingredients_ or _instructions_ are undefined, return `{ message: "All fields are required" }`
+        - If _title_ is not a string, return `{ message: "title of recipe must be a string" }`
+        - If the _title_ is shorter than 3 or longer than 100, return `{ message: "title of recipe must be between 3 and 100" }`
 
-  - `checkRecipeId` returns a status 404 with a `{ message: "recipe not found" }` if `req.params.id` does not exist in the database
+      - `checkRecipeId` returns a status 404 with a `{ message: "recipe not found" }` if `req.params.id` does not exist in the database
 
-  - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.name` already exists in the database
+      - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.name` already exists in the database
  
   *Recipes Validation Functions*
 
-    -
+      -
 
 - Inside `api/middleware/restricted.js`: (For the login endpoint)
 
