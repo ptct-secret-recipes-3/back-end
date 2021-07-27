@@ -127,8 +127,8 @@ _recipes_
   - `getAll` resolves to an array of recipes (or an empty array)
   - `getById` resolves to an recipe by the given id
   - `create` resolves to the newly created recipe
-  - `updateById` resolves to the updated recipe
-  - `deleteById` resolves to the deleted recipe
+  - `updateById(id)` resolves to the updated recipe
+  - `removeById(id)` resolves to the deleted recipe
   - 
 ### *Write Middleware*
 
@@ -145,6 +145,7 @@ _recipes_
       - `checkRecipeId` returns a status 404 with a `{ message: "recipe not found" }` if `req.params.id` does not exist in the database
 
       - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.title` already exists in the database
+        - *Did not complete*
  
  
   *Login & Register Functions*
