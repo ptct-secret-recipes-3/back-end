@@ -144,7 +144,7 @@ _recipes_
 
       - `checkRecipeId` returns a status 404 with a `{ message: "recipe not found" }` if `req.params.id` does not exist in the database
 
-      - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.name` already exists in the database
+      - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.title` already exists in the database
  
  
   *Login & Register Functions*
