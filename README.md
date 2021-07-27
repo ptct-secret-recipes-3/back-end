@@ -50,7 +50,7 @@ AFTER DEPLOY
 | ----------- | ----------------------|
 | username    | string, required      |
 | password    | string, required      |
-| email       | string, required      |
+| email       | string, not required  |
 
 - returned JSON example: 
 
