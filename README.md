@@ -112,7 +112,15 @@ _recipes_
     - `npm run seed`
     - `npm reset db`
     (Include testing scripts - create a testing db)
-#### *Build Model Functions*
+#### *Build Auth-Model Functions*
+
+- db access functions inside `api/auth/auth-model.js` using Knex:
+
+    - `add` resolves to a newly created user (register endpoint)
+    - `findByUserName` resolves to a user by the given username (login endpoint)
+ 
+
+#### *Build Recipe-Model Functions*
 
 - db access functions inside `api/recipes/recipes-model.js` using Knex:
 
@@ -121,7 +129,7 @@ _recipes_
   - `create` resolves to the newly created recipe
   - `updateById` resolves to the updated recipe
   - `deleteById` resolves to the deleted recipe
-
+  - 
 #### *Write Middleware*
 
 - Inside `api/middleware/recipes-middleware.js`:
