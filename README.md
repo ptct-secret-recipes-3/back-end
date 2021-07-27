@@ -130,9 +130,9 @@ _recipes_
   - `updateById` resolves to the updated recipe
   - `deleteById` resolves to the deleted recipe
   - 
-#### *Write Middleware*
+### *Write Middleware*
 
-- Inside `api/middleware/middleware.js`
+#### Inside `api/middleware/middleware.js
  
  *Login & Register Functions*
  
@@ -150,7 +150,7 @@ _recipes_
 
       -
 
-- Inside `api/middleware/restricted.js`: (For the login endpoint)
+#### Inside `api/middleware/restricted.js` (For the login endpoint)
 
     - `restricted` returns the token upon user credential validation. 
 
