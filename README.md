@@ -133,7 +133,7 @@ _recipes_
 #### *Write Middleware*
 
 - Inside `api/middleware/middleware.js`:
-- *Login & Register Functions*
+ *Login & Register Functions*
 - 
   - `checkRecipePayload` returns a status 400 with if `req.body` is invalid:
 
@@ -145,13 +145,13 @@ _recipes_
 
   - `checkTitleNameUnique` returns a status 400 with a `{ message: "That recipe has already been added!" }` if the `req.body.name` already exists in the database
  
- - *Recipes Validation Functions*
+  *Recipes Validation Functions*
 
     -
 
 - Inside `api/middleware/restricted.js`: (For the login endpoint)
 
-    -`restricted` returns the token upon user credential validation. 
+    - `restricted` returns the token upon user credential validation. 
 
 ---------------------------------------------------------------------------------------------------------------------------------------
   
