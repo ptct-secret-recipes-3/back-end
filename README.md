@@ -4,7 +4,7 @@
 *Notes for Front-End*
 
 Below you'll find the info you need to build the front-end, including the baseURL, API endpoints, and the data schemas.
-#### Base URL: (localhost vs. heroku - incomplete)
+#### Base URL: (deployed, with autodeploy set up when push to main)
 TESTING
 - http://locahost:5000/api
 
