@@ -1,5 +1,6 @@
 ///////////////////////////////CONFIG SETTINGS//////////////////////////////////////////////
 const pg = require('pg');
+console.log('>> NODE_ENV: ', process.env.NODE_ENV);
 console.log(">>>>>>>>>>>>>>> process.env.DATABASE_URL: ", process.env.DATABASE_URL);
 const sharedConfig = {
     client: 'pg',
